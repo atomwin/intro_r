@@ -2,6 +2,26 @@
 
 repo for reporting and informatics 2 hr training
 
+refer to these books for the training:
+
+-   <https://epirhandbook.com/>
+
+-   <https://r4ds.hadley.nz/data-transform>
+
+## timeline
+
+-   **1:30 PM - 1:50 PM**: R basics (chapter 3) functions (3.6), Packages (3.7), piping (8.1), key operators and functions (8.2)
+
+-   **1:50 PM - 2:00 PM**: 10 min break time
+
+-   **2:00 PM - 2:30 PM**: exploring a dataset, objects/datatypes (3.10),
+
+-   **2:30 PM - 2:45 PM**: why not excel? Why R? What is the meaning of life lol?
+
+-   **2:45 PM - 3:00 PM**: Questions
+
+## wth r these folders
+
 ```         
 .
 ├── code                    # code [FOLDER]
@@ -10,6 +30,8 @@ repo for reporting and informatics 2 hr training
 │   └── example_data.csv    # code from training
 └── README.md               # this read me lil bro
 ```
+
+## memes
 
 ![Alt Text](https://miro.medium.com/v2/resize:fit:1194/1*zQ-lvV3oWQla9KuYHi_1sg.png)
 
