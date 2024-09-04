@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # INTRO TO R
 
 repo for reporting and informatics 2 hr training
