@@ -8,6 +8,11 @@ refer to these books for the training:
 
 -   <https://r4ds.hadley.nz/data-transform>
 
+interactive R learning
+
+-   <https://swirlstats.com/swirlify/>
+
+
 ## timeline
 
 -   **1:30 PM - 1:50 PM**: rstudio orientation (chapter 3.5), functions (3.6), working directory (3.9), packages (3.7), scripting (3.8), piping (8.1), key operators and functions (8.2)
