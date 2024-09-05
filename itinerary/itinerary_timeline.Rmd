@@ -10,7 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## TLDR
 
-Refer to this online doc for guidanceL: - <https://epirhandbook.com/>
+Refer to this online doc for guidance:
+
+-   <https://epirhandbook.com/>
 
 -   <https://r4ds.hadley.nz/data-transform>
 
@@ -43,20 +45,19 @@ Refer to this online doc for guidanceL: - <https://epirhandbook.com/>
 
 -   **2:00 PM - 2:30 PM**: exploring a dataset, objects/datatypes (3.10),
 
-    -   exploring a dataset 
+    -   exploring a dataset
         -   show cars, my dataset, iris, etc
-        -   this youtube: https://www.youtube.com/watch?v=3iz-2iM4RFE
+        -   this youtube: <https://www.youtube.com/watch?v=3iz-2iM4RFE>
     -   objects/datatypes (3.10)
         -   show vector, convert datatypes
-        -   good link: http://venus.ifca.unican.es/Rintro/dataStruct.html
+        -   good link: <http://venus.ifca.unican.es/Rintro/dataStruct.html>
 
 -   **2:30 PM - 2:45 PM**: why not excel? Why R? What is the meaning of life lol?
 
-    - why use R instead of excel
-        - version control with git, automate task (show sherri vaccination data email), covid mass correction, recordlinkage, modeling
+    -   why use R instead of excel
+        -   version control with git, automate task (show sherri vaccination data email), covid mass correction, recordlinkage, modeling
 
 -   **2:45 PM - 3:00 PM**: Questions
-
 
 ![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjY3ZHl4YmNvYzJlam9naG9jcjZjZ28xamR3cTIzYzJ1cXd4MW5sMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GYdyfzzDfanrq/giphy.webp)
 

@@ -12,7 +12,6 @@ interactive R learning
 
 -   <https://swirlstats.com/swirlify/>
 
-
 ## timeline
 
 -   **1:30 PM - 1:50 PM**: rstudio orientation (chapter 3.5), functions (3.6), working directory (3.9), packages (3.7), scripting (3.8), piping (8.1), key operators and functions (8.2)
@@ -29,11 +28,21 @@ interactive R learning
 
 ```         
 .
-├── code                    # code [FOLDER]
-│   └── training_script.R   # code from training
-├── data                    # data [FOLDER]
-│   └── example_data.csv    # code from training
-└── README.md               # this readme lil bro
+├── code                        # code [FOLDER]
+│   └── training_script.R       # code from training
+│ 
+├── data                        # data [FOLDER]
+│   └── example_data.csv        # test data for training
+│ 
+├── itinerary                   # itinerary [FOLDER]
+│   └── itinerary_timeline.md   # more in depth itinerary
+│ 
+├── misc                        # data [FOLDER]
+│   └── notes.txt               # notes for repo dev/training
+│ 
+├── photos                      # data [FOLDER]
+│   └── epi_confusing_ui.PNG    # pic for itinerary md
+└── README.md                   # this readme lil bro
 ```
 
 ## memes
