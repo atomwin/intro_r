@@ -10,7 +10,7 @@ refer to these books for the training:
 
 ## timeline
 
--   **1:30 PM - 1:50 PM**: R basics (chapter 3) functions (3.6), Packages (3.7), piping (8.1), key operators and functions (8.2)
+-   **1:30 PM - 1:50 PM**: rstudio orientation (chapter 3.5), functions (3.6), working directory (3.9), packages (3.7), scripting (3.8), piping (8.1), key operators and functions (8.2)
 
 -   **1:50 PM - 2:00 PM**: 10 min break time
 
@@ -28,7 +28,7 @@ refer to these books for the training:
 │   └── training_script.R   # code from training
 ├── data                    # data [FOLDER]
 │   └── example_data.csv    # code from training
-└── README.md               # this read me lil bro
+└── README.md               # this readme lil bro
 ```
 
 ## memes
