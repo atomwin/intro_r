@@ -1,6 +1,8 @@
 ## TLDR
 
-Refer to this online doc for guidanceL: - <https://epirhandbook.com/>
+Refer to this online doc for guidance: 
+
+- <https://epirhandbook.com/>
 
 -   <https://r4ds.hadley.nz/data-transform>
 
