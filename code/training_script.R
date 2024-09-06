@@ -53,6 +53,24 @@ df_squat_sum <- df %>% count(max_squat)
 
 df_squat_sum_no_pipe <- count(df, max_squat)
   
+# operators
+name <- "adam"
+name
 
+vec_num <- c(1:10) 
+vec_num
+
+one_three <- vec_num %in% c(1:3)
+one_three
+
+a <- 1
+a
+b <- c(2:4)
+b
+
+a == b
+a != b
+
+#################################################### post break ########################################################################
 
 
