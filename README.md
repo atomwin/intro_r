@@ -42,6 +42,11 @@ interactive R learning
 │ 
 ├── photos                      # data [FOLDER]
 │   └── epi_confusing_ui.PNG    # pic for itinerary md
+│ 
+├── .gitinore                   # git stuff - ignore if noob lol
+│ 
+├── intro_r.Rproj               # rstudio project file
+│ 
 └── README.md                   # this readme lil bro
 ```
 
