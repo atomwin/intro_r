@@ -7,17 +7,6 @@ df_ins <- df %>% select(insurance)
 
 df_in_low <- df_ins %>% mutate(insur_lower = tolower(insurance))
 
-
-# regex
-vector <- unique(df_in_low$insur_lower)
-
-vector_clean <- gsub('^.*n$', 'no', vector)  #^ start of the line, $ end of line, .* is searching until n
-# regex
-
-df_clean <- df_in_low %>% mutate(insur_clean = ifelse("n" == "n", "no", insur_lower))
-
-gsub('^.*n$', '', listfruit)
-
 df_clean <- df_in_low %>% mutate(insur_clean = case_when(
   insur_lower == "n" ~ "no",
   insur_lower == "y" ~ "yes",
@@ -31,5 +20,14 @@ df_add_clean
 
 df_final <- df_add_clean %>% select(-insurance)
 
-
 write.csv(df_final, "C:/Users/adam.nguyen/Downloads/final.csv")
+
+# regex--------------------------------------------------------
+# vector <- unique(df_in_low$insur_lower)
+# 
+# vector_clean <- gsub('^.*n$', 'no', vector)  #^ start of the line, $ end of line, .* is searching until n
+# regex--------------------------------------------------------
+
+# ifelse for cleaning no
+# df_clean <- df_in_low %>% mutate(insur_clean = ifelse(insur_lower == "n", "no", insur_lower))
+# df_clean
