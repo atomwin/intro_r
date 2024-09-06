@@ -24,6 +24,10 @@ interactive R learning
 
 -   **2:45 PM - 3:00 PM**: Questions
 
+more in depth timeline:
+
+<https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
+
 ## wth r these folders
 
 ```         
