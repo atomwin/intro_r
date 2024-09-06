@@ -16,6 +16,8 @@ Refer to this online doc for guidance:
 
 -   <https://r4ds.hadley.nz/data-transform>
 
+Follow this repo for updated code. Remind instructor to push commits if code not updated.
+
 ## TIMELINE
 
 -   **1:30 PM - 1:50 PM**: rstudio orientation (chapter 3.5), functions (3.6), working directory (3.9), packages (3.7), scripting (3.8), piping (8.1), key operators and functions (8.2)
@@ -29,6 +31,7 @@ Refer to this online doc for guidance:
         -   they will create an R project in local.. I recommend to avoid one drive. old school ctrl + s in hard drive.. they can save in documents if easier.
     -   packages (3.7)
         -   show install.packages(""), library(), what is pacman::p_load() ?
+        -   https://github.com/tidyverse
         -   show how to read library::function() - helps specify the function from x library and to avoid conflicts with other similar functions from different library. ie similar hammer but from different toolset.
         -   base r vs packages
     -   scripting (3.8)

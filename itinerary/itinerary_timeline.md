@@ -1,10 +1,13 @@
 ## TLDR
 
-Refer to this online doc for guidance: 
+Refer to this online doc for guidance:
 
-- <https://epirhandbook.com/>
+-   <https://epirhandbook.com/>
 
 -   <https://r4ds.hadley.nz/data-transform>
+
+Follow this repo for updated code. Remind instructor to push commits if
+code not updated.
 
 ## TIMELINE
 
@@ -25,6 +28,7 @@ Refer to this online doc for guidance:
     -   packages (3.7)
         -   show install.packages(““), library(), what is
             pacman::p\_load() ?
+        -   <https://github.com/tidyverse>
         -   show how to read library::function() - helps specify the
             function from x library and to avoid conflicts with other
             similar functions from different library. ie similar hammer
