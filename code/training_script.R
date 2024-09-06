@@ -4,7 +4,6 @@ library(pacman)
 
 pacman::p_load(rio, tidyverse, here)
 
-
 sum(1, 2)
 
 df <- read.csv("C:/Users/adam.nguyen/Downloads/example_data.csv")
@@ -72,5 +71,8 @@ a == b
 a != b
 
 #################################################### post break ########################################################################
+# excel vs r
+
+df
 
 
