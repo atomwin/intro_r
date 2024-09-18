@@ -1,6 +1,6 @@
 # INTRO TO R
 
-repo for reporting and informatics 2 hr training
+repo for reporting and informatics R learning sessions
 
 refer to these books for the training:
 
@@ -12,47 +12,40 @@ interactive R learning
 
 -   <https://swirlstats.com/swirlify/>
 
-## timeline
-
--   **1:30 PM - 1:50 PM**: rstudio orientation (chapter 3.5), functions (3.6), working directory (3.9), packages (3.7), scripting (3.8), piping (8.1), key operators and functions (8.2)
-
--   **1:50 PM - 2:00 PM**: 10 min break time
-
--   **2:00 PM - 2:30 PM**: exploring a dataset, objects/datatypes (3.10),
-
--   **2:30 PM - 2:45 PM**: why not excel? Why R? What is the meaning of life lol?
-
--   **2:45 PM - 3:00 PM**: Questions
-
-more in depth timeline:
-
-<https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
-
 ## wth r these folders
 
 ```         
 .
-├── code                        # code [FOLDER]
-│   └── training_script.R       # code from training
+├── data                                        # data [FOLDER]
+│   └── example_data.csv                        # test data for training
 │ 
-├── data                        # data [FOLDER]
-│   └── example_data.csv        # test data for training
+├── itinerary                                   # itinerary [FOLDER]
+│   └── intro_session_2_itinerary_timeline.md   # more in depth itinerary
 │ 
-├── itinerary                   # itinerary [FOLDER]
-│   └── itinerary_timeline.md   # more in depth itinerary
+├── misc                                        # misc [FOLDER]
+│   └── notes.txt                               # notes for repo dev/training
 │ 
-├── misc                        # data [FOLDER]
-│   └── notes.txt               # notes for repo dev/training
+├── photos                                      # photos [FOLDER]
+│   └── epi_confusing_ui.PNG                    # pic for itinerary md
 │ 
-├── photos                      # data [FOLDER]
-│   └── epi_confusing_ui.PNG    # pic for itinerary md
+├── sessions                                    # session folder [FOLDER]
+│   ├── session_1                               # 1st session
+│   │   ├── example_data.xlsx                   # example data
+│   │   ├── RI R Learning Sessions              # powerpoint
+│   │   └── session_1_code.R                    # code for x session
+│   ├── session_2_intro_to_R                    # .... same format as above
+│   └── session_3                   
 │ 
-├── .gitinore                   # git stuff - ignore if noob lol
+├── .gitinore                                   # git stuff; if = noob, ignore, stop lurkin
 │ 
-├── intro_r.Rproj               # rstudio project file
+├── intro_r.Rproj                               # rstudio project file
 │ 
-└── README.md                   # this readme lil bro
+└── README.md                                   # this readme lil bro
 ```
+
+old intro to R (2 hr training) itinerary:
+
+<https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
 
 ## memes
 
