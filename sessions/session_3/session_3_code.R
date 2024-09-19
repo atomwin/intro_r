@@ -1,5 +1,5 @@
 ################################################################################
-# WK 1: import and clean data ##################################################
+# Session 1: import and clean data #############################################
 ################################################################################
 # tip move console to top right (defaults to bottom left)
 # writing in console is like writing a sticky note then forgetting about it
@@ -14,15 +14,18 @@ library(janitor)
 #  why not \ ? Because \ are arguments like < > + - ;ex "\d" in regex
 ## you can use \\ as well
 
-> < + *
+# > < + *
 
-df_csv <- read.csv("C:/GitHub Repo/Adams_Devops/ri_training/draft_wk/example_data.csv") 
-view(df_csv)
+df_csv <- read.csv(paste0(getwd(), "/data/example_data.csv")) 
+# view(df_csv)
 
 # quick info datatypes
 glimpse(df_csv) # tidyverse function
 
 str(df_csv) # base r function 
+
+
+
 
 # base r vs libraries: creator vs contributors: inventors vs improvements
 
@@ -104,15 +107,15 @@ df_csv_select <- df_csv_new_column_names %>%
 
 df_csv_formating <- df_csv_select
 
-
 # FINAL CODE--------------------------------------------------------------------
 ################################################################################
-# WK 1: import and clean data ##################################################
+# Session 1: import and clean data #############################################
 ################################################################################
 
+# Session 2: 2 hr intro to R training session
 
 ################################################################################
-# WK 2: clean data WORK IN PROGRESSS#############################################################
+# Session 3: clean data WORK IN PROGRESSS#######################################
 ################################################################################
 
 # cleaning data in data frames
@@ -123,32 +126,75 @@ df_wk2_case_when <- df_csv_formating %>%
   mutate(
     edit_race = case_when(
       race == "White" ~ "white",
+      race == "WHITE" ~ "white",
       race == "Other" ~ "other",
       race == "Black" ~ "black",
+      race == "BLACK" ~ "black",
       race == "Mixed" ~ "mixed",
       race == "Caucasian" ~ "white",
+      race == "CaucasiaN" ~ "White",
       race == "Af-Am" ~ "black",
       race == "Asian" ~ "asian",
-      race == "WHITE" ~ "white",
+      race == "ASiaN" ~ "asian",
       TRUE ~ race
     )
-  )
+  ) %>% 
+  select(race, edit_race)
 
-unique()
+unique(df_wk2_case_when[,c('race','edit_race')])
+
 # why do more work? STANDARIZE!
 df_wk2_case_when_lower <- df_csv_formating %>%
   mutate(
-    lower_case_race = tolower(race)
-  )
+    lower_case_race = tolower(race),
+    edit_race = case_when(
+      lower_case_race == "white" ~ "white",
+      lower_case_race == "other" ~ "other",
+      lower_case_race == "black" ~ "black",
+      lower_case_race == "mixed" ~ "mixed",
+      lower_case_race == "caucasian" ~ "white",
+      lower_case_race == "af-am" ~ "black",
+      lower_case_race == "asian" ~ "asian",
+      TRUE ~ race
+    )
+  ) %>% 
+  select(race, lower_case_race, edit_race)
 
-unique(df_wk2_case_when_lower$lower_case_race)
-unique(df_csv_formating$race)
+# how can you test if correct? QA ie unit test?
+vec_race <- c("white","black", "asian", "mixed", "other") %>% sort() # 
+
+qa_race_edit <- df_wk2_case_when_lower %>% 
+  group_by(edit_race) %>% 
+  reframe(og = unique(race)) %>% 
+  arrange(edit_race)
+
+ifelse(unique(qa_race_edit$edit_race) == vec_race, print("pass"), print("FAIL"))
+
+unique(qa_race_edit$edit_race) == vec_race
+
+if (unique(qa_race_edit$edit_race)[i] %in% vec_race){
+  print("pass")
+} else {
+  print("FAIL")
+}
+
+any(unique(qa_race_edit$edit_race) = vec_race)
+  
+unique(df_wk2_case_when_lower[,c('race','edit_race')])
+
+unique(dfc(df_wk2_case_when_lower$race,df_wk2_case_when_lower$edit_race ))
+
+
+
+# now in scenarios where there are a lot of unique values for race;
+# regular expression (gsub()) or
+# string mathing (lib(fuzzywuzzyR)) may help find the best replacement
 
 # calc mean.... do mean() and old school way ie sum/3 or sum/length(of unqiue col)
 
 # FINAL CODE--------------------------------------------------------------------
 ################################################################################
-# WK 2: clean data WORK IN PROGRESSS#############################################################
+# Session 3: clean data WORK IN PROGRESSS#######################################
 ################################################################################
 
 
