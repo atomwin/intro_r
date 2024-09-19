@@ -1,21 +1,21 @@
-dob,Race,Sex,Hispanic,excerise,insurance,max_squat,zipCode
-11/11/1967,White,Male,Hispanic,yes,no,500,MX
-12/11/1990,Caucasian,Female,Not Hispanic,y,no,45,77012
-may 5 1970,White,Male,Hispanic,yes,Y,145,77013
-3-Jun-81,Other,Female,Not Hispanic,Y,NO,225,77014
-6/7/1984,ASiaN,Male,Not Hispanic,no,N,225,77015
-4/9/1980,Black,Female,H ,no,no,145,77016
-1/13/1985,White,Female,Hispannic,yes,yes,145,77017
-11/15/1968,Asian,F ,Hispanic,yes,y,405,77018
-4/22/1982,Mixed,Male,Not Hispanic,yes,n,145,77019
-10/12/2003,White,M ,Not Hispanic,no,y,185,77019
-11/6/1982,White,F,NH,no,n,185,77019
-7/9/1979,Caucasian,M,Not Hispanic,no,no,185,77019
-5=11-1984,Black,F,NH,N,N,185,77019
-4/7/2004,BLACK,M,Hispanic,N,yes,145,77014
-3/8/1990,Asian,M,NH,no,Y,145,77015
-9/6/1983,WHITE,Male,Not Hispanic,no,yes,145,77023
-7/11/1986,WHITE,Female,Not Hispanic,no,yes,405,77024
-6/9/1987,Black,Male,Hispanic,n,yes,410,77025
-3/29/1979,CaucasiaN,Female,Hispanic,many,No,45,77025
-8/11/1978,Caucasian,Female,Not Hispanic,,nO,45,77025
+dob,Race,Sex,Hispanic,excerise,insurance,max_squat,max_bench,max_deadlift,zipCode
+11/11/1967,White,Male,Hispanic,yes,no,500,315,345,MX
+12/11/1990,Caucasian,Female,Not Hispanic,y,no,45,50,55,77012
+may 5 1970,White,Male,Hispanic,yes,Y,145,100,110,77013
+3-Jun-81,Other,Female,Not Hispanic,Y,NO,225,100,110,77014
+6/7/1984,ASiaN,Male,Not Hispanic,no,N,225,145,160,77015
+4/9/1980,Black,Female,H ,no,no,145,90,100,77016
+1/13/1985,White,Female,Hispannic,yes,yes,145,145,160,77017
+11/15/1968,Asian,F ,Hispanic,yes,y,405,350,385,77018
+4/22/1982,Mixed,Male,Not Hispanic,yes,n,145,145,185,77019
+10/12/2003,White,M ,Not Hispanic,no,y,185,155,175,77019
+11/6/1982,White,F,NH,no,n,185,155,185,77019
+7/9/1979,Caucasian,M,Not Hispanic,no,no,185,225,225,77019
+5=11-1984,am-af,F,NH,N,N,185,185,205,77019
+4/7/2004,BLACK,M,Hispanic,N,yes,145,65,185,77014
+3/8/1990,Asian,M,NH,no,Y,145,85,80,77015
+9/6/1983,WHITE,Male,Not Hispanic,no,yes,145,65,200,77023
+7/11/1986,WHITE,Female,Not Hispanic,no,yes,405,225,375,77024
+6/9/1987,Black,Male,Hispanic,n,yes,410,400,500,77025
+3/29/1979,CaucasiaN,Female,Hispanic,many,No,45,75,100,77025
+8/11/1978,Caucasian,Female,Not Hispanic,,nO,45,45,95,77025
