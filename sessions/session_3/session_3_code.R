@@ -146,17 +146,12 @@ df_csv_race_edit_lower <- df_csv_formating %>%
   mutate(
     lower_case_race = tolower(race),
     edit_race = case_when(
-      lower_case_race == "white" ~ "white", # comment out later to show better code
-      lower_case_race == "other" ~ "other", # comment out later to show better code
-      lower_case_race == "black" ~ "black", # comment out later to show better code
-      lower_case_race == "mixed" ~ "mixed", # comment out later to show better code
-      lower_case_race == "asian" ~ "asian", # comment out later to show better code
       lower_case_race == "caucasian" ~ "white",
       lower_case_race == "am-af" ~ "black",
       TRUE ~ lower_case_race
     )
   )  # %>% 
-   # select(race, lower_case_race, edit_race)
+    #select(race, lower_case_race, edit_race)
 
 unique(df_csv_race_edit_lower[,c('race','edit_race')])
 # 
@@ -169,6 +164,7 @@ qa_race_edit <- df_csv_race_edit_lower %>%
   group_by(edit_race) %>%
   reframe(og = unique(race)) %>%
   arrange(edit_race)
+
 # 
 if (identical(unique(qa_race_edit$edit_race), vec_race) == TRUE){
   insight::print_color("PASS: vectors match", "green")
@@ -197,14 +193,15 @@ df_csv_average <- df_csv_race_clean %>%
 
 # average strengh of contestants
 # mean_strenth_overall <- sum(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench) / 20 # nrow
-mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
+mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow
+mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / 20 # nrow
+
+#  mean (df_csv_race_clean$max_squat+ df_csv_race_clean$max_deadlift+ df_csv_race_clean$max_bench)
 mean_strenth_overall
 
 # no the correct output
-mean_bench <- mean(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench))
-mean_bench   # mean(sum(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench)))
-
-
+mean_strength_wrong <- mean(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench))
+mean_strength_wrong   # mean(sum(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench)))
 
 
 # FINAL CODE--------------------------------------------------------------------
