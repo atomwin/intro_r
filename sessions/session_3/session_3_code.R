@@ -113,7 +113,7 @@ df_csv_formating <- df_csv_select
 # Session 3: column manipulation  ##############################################
 ################################################################################
 library(tidyverse)
-library(insight)
+# library(insight), we will use but dont call bc conlict with janitor lib. use ::
 
 # cleaning data in data frames
 # use mutate, case_when to clean the race column
@@ -193,17 +193,17 @@ df_csv_average <- df_csv_race_clean %>%
     avg_strength_func = round(rowMeans(select(., c(8:10))))
   ) # %>%  #  select(., max_squat,max_bench ,max_deadlift) | select(., c(max_squat,max_bench ,max_deadlift)) 
   # why use function vs manual? easier to create into a function tbh, for next week
-  select(-avg_strength_manual)
+  # select(-avg_strength_manual)
 
 # average strengh of contestants
 # mean_strenth_overall <- sum(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench) / 20 # nrow
 mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
 mean_strenth_overall
 
-# does not work
+# no the correct output
 mean_bench <- mean(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench))
-            # mean(sum(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench)))
-mean_bench
+mean_bench   # mean(sum(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench)))
+
 
 
 
@@ -235,7 +235,7 @@ if (identical(sort(unique(df_clean_race_strength$race)), vec_race) == TRUE){
 
 # average strengh of contestants
 mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
-
+mean_strenth_overall
 # FINAL CODE--------------------------------------------------------------------
 
 ################################################################################
