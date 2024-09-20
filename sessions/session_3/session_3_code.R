@@ -7,7 +7,8 @@
 
 # library and functions: tool set, whats in the tool set- hammer, chainsaw
 # install.packages("tidyverse")
-
+library(tidyverse)
+library(janitor)
 
 # import data-------------------------------------------------------------------
 #  why not \ ? Because \ are arguments like < > + - ;ex "\d" in regex
@@ -109,7 +110,7 @@ df_csv_formating <- df_csv_select
 # Session 2: 2 hr intro to R training session
 
 ################################################################################
-# Session 3: clean data WORK IN PROGRESSS#######################################
+# Session 3: column manipulation  ##############################################
 ################################################################################
 library(tidyverse)
 library(insight)
@@ -194,11 +195,10 @@ df_csv_average <- df_csv_race_clean %>%
   # why use function vs manual? easier to create into a function tbh, for next week
   select(-avg_strength_manual)
 
-# average for overall x person in dataset max+squat+deadlift
-mean_strenth_overall <- sum(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench) / 20 # nrow
+# average strengh of contestants
+# mean_strenth_overall <- sum(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench) / 20 # nrow
 mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
-
-mean_bench_manual
+mean_strenth_overall
 
 # does not work
 mean_bench <- mean(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench))
@@ -217,7 +217,7 @@ df_clean_race_strength <- df_csv_formating %>%
       TRUE ~ lower_case_race
     ),
     race = edit_race,
-    avg_strength = rowMeans(select(., max_squat,max_bench ,max_deadlift))
+    avg_strength = round(rowMeans(select(., max_squat, max_bench ,max_deadlift)))
   ) %>% 
   select(-c("lower_case_race", "edit_race")) 
 
@@ -233,11 +233,13 @@ if (identical(sort(unique(df_clean_race_strength$race)), vec_race) == TRUE){
   insight::print_color("!!FAIL: vectors NO match!!", "red")
 }
 
+# average strengh of contestants
+mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
 
 # FINAL CODE--------------------------------------------------------------------
 
 ################################################################################
-# Session 3: clean data WORK IN PROGRESSS#######################################
+# Session 3: column manipulation  ##############################################
 ################################################################################
 
 
