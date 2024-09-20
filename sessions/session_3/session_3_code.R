@@ -7,8 +7,7 @@
 
 # library and functions: tool set, whats in the tool set- hammer, chainsaw
 # install.packages("tidyverse")
-library(tidyverse)
-library(janitor)
+
 
 # import data-------------------------------------------------------------------
 #  why not \ ? Because \ are arguments like < > + - ;ex "\d" in regex
@@ -83,6 +82,8 @@ df_csv_formating <- df_csv %>%
 # clean col names---------------------------------------------------------------
 
 # FINAL CODE--------------------------------------------------------------------
+# add into k drive so everyone can access/run
+
 df_csv <- read.csv(paste0(getwd(), "/data/example_data.csv")) 
 
 df_csv_clean_names <- df_csv %>% clean_names()
@@ -110,6 +111,8 @@ df_csv_formating <- df_csv_select
 ################################################################################
 # Session 3: clean data WORK IN PROGRESSS#######################################
 ################################################################################
+library(tidyverse)
+library(insight)
 
 # cleaning data in data frames
 # use mutate, case_when to clean the race column
@@ -126,7 +129,7 @@ df_csv_race_edit <- df_csv_formating %>%
       race == "Mixed" ~ "mixed",
       race == "Caucasian" ~ "white",
       race == "CaucasiaN" ~ "white",
-      race == "Af-Am" ~ "black",
+      race == "am-af" ~ "black",
       race == "Asian" ~ "asian",
       race == "ASiaN" ~ "asian",
       TRUE ~ race
@@ -142,35 +145,35 @@ df_csv_race_edit_lower <- df_csv_formating %>%
   mutate(
     lower_case_race = tolower(race),
     edit_race = case_when(
-      lower_case_race == "white" ~ "white", #
-      lower_case_race == "other" ~ "other", #
-      lower_case_race == "black" ~ "black", #
-      lower_case_race == "mixed" ~ "mixed", #
+      lower_case_race == "white" ~ "white", # comment out later to show better code
+      lower_case_race == "other" ~ "other", # comment out later to show better code
+      lower_case_race == "black" ~ "black", # comment out later to show better code
+      lower_case_race == "mixed" ~ "mixed", # comment out later to show better code
+      lower_case_race == "asian" ~ "asian", # comment out later to show better code
       lower_case_race == "caucasian" ~ "white",
       lower_case_race == "am-af" ~ "black",
-      lower_case_race == "asian" ~ "asian", #
       TRUE ~ lower_case_race
     )
-  ) # %>% 
-  # select(race, lower_case_race, edit_race)
+  )  # %>% 
+   # select(race, lower_case_race, edit_race)
 
-# unique(df_csv_race_edit_lower[,c('race','edit_race')])
+unique(df_csv_race_edit_lower[,c('race','edit_race')])
 # 
 # # how can you test if correct? QA ie unit test?
 # # create vector of what we expect
-# vec_race <- c("white","black", "asian", "mixed", "other") %>% sort() 
+vec_race <- c("white","black", "asian", "mixed", "other") %>% sort()
 # 
-# # df to show combination, just like unique
-# qa_race_edit <- df_csv_race_edit_lower %>% 
-#   group_by(edit_race) %>% 
-#   reframe(og = unique(race)) %>% 
-#   arrange(edit_race)
+# df to show combination, just like unique
+qa_race_edit <- df_csv_race_edit_lower %>%
+  group_by(edit_race) %>%
+  reframe(og = unique(race)) %>%
+  arrange(edit_race)
 # 
-# if (identical(unique(qa_race_edit$edit_race), vec_race) == TRUE){
-#   insight::print_color("PASS: vectors match", "green")
-# } else {
-#   insight::print_color("!!FAIL: vectors NO match!!", "red")
-# }
+if (identical(unique(qa_race_edit$edit_race), vec_race) == TRUE){
+  insight::print_color("PASS: vectors match", "green")
+} else {
+  insight::print_color("!!FAIL: vectors NO match!!", "red")
+}
 
 df_csv_race_clean <- df_csv_race_edit_lower %>% 
   mutate(race = edit_race) %>% 
@@ -179,24 +182,38 @@ df_csv_race_clean <- df_csv_race_edit_lower %>%
 # regular expression (gsub()) or
 # string mathing (lib(fuzzywuzzyR)) may help find the best replacement
 
-# calc mean.... do mean() and old school way ie sum/3 or sum/length(of unqiue col)
-df_average <- df_csv_race_clean %>% 
-  mutate(avg_strength_manual = (max_squat + max_bench + max_deadlift) / 3,
-         avg_strength_func = rowMeans(select(., max_squat,max_bench ,max_deadlift))) %>%  #  c(max_squat ,max_bench ,max_deadlift)
-select(-avg_strength_manual)
+
+# calc rowMean.... do mean() and old school way ie sum/3 or sum/length(of unqiue col)
+
+# rowMeans
+df_csv_average <- df_csv_race_clean %>%
+  mutate(
+    avg_strength_manual = (max_squat + max_bench + max_deadlift) / 3,
+    avg_strength_func = round(rowMeans(select(., c(8:10))))
+  ) # %>%  #  select(., max_squat,max_bench ,max_deadlift) | select(., c(max_squat,max_bench ,max_deadlift)) 
+  # why use function vs manual? easier to create into a function tbh, for next week
+  select(-avg_strength_manual)
+
+# average for overall x person in dataset max+squat+deadlift
+mean_strenth_overall <- sum(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench) / 20 # nrow
+mean_strenth_overall <- sum(df_csv_race_clean[,8:10]) / nrow(df_csv_race_clean) # nrow 
+
+mean_bench_manual
+
+# does not work
+mean_bench <- mean(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench))
+            # mean(sum(c(df_csv_race_clean$max_squat, df_csv_race_clean$max_deadlift, df_csv_race_clean$max_bench)))
+mean_bench
+
+
 
 # FINAL CODE--------------------------------------------------------------------
 df_clean_race_strength <- df_csv_formating %>%
   mutate(
     lower_case_race = tolower(race),
     edit_race = case_when(
-      lower_case_race == "white" ~ "white", #
-      lower_case_race == "other" ~ "other", #
-      lower_case_race == "black" ~ "black", #
-      lower_case_race == "mixed" ~ "mixed", #
       lower_case_race == "caucasian" ~ "white",
       lower_case_race == "am-af" ~ "black",
-      lower_case_race == "asian" ~ "asian", #
       TRUE ~ lower_case_race
     ),
     race = edit_race,
@@ -215,6 +232,8 @@ if (identical(sort(unique(df_clean_race_strength$race)), vec_race) == TRUE){
 } else {
   insight::print_color("!!FAIL: vectors NO match!!", "red")
 }
+
+
 # FINAL CODE--------------------------------------------------------------------
 
 ################################################################################
@@ -244,6 +263,9 @@ df_sex <- df_clean_race_strength %>%
   ))
 
 df_sex
+
+
+# then complete with race to create race_ethnicity
 ################################################################################
 
 ################################################################################
@@ -251,5 +273,5 @@ df_sex
 # insurance col ################################################################
 ################################################################################
 
-
+# group by for standard dev of sex strenghth
 
