@@ -12,7 +12,7 @@ interactive R learning
 
 -   <https://swirlstats.com/swirlify/>
 
-## wth r these folders
+## wth r these folders (not all files will be defined)
 
 ```         
 .
@@ -34,7 +34,13 @@ interactive R learning
 │   │   ├── RI R Learning Sessions              # powerpoint
 │   │   └── session_1_code.R                    # code for x session
 │   ├── session_2_intro_to_R                    # .... same format as above
-│   └── session_3                   
+│   └── session_3 
+│       ├── average_example.xlsx                # excel sheet demonstrating mean() in r
+│       ├── session_3_clean.Rmd                 # clean sess 3 code in Rmd file
+│       ├── session_3_code.R                    # original code for sess 3
+│       ├── session_3_problem.docx              # hw problem for sess 3
+│       └── ...
+│
 │ 
 ├── .gitinore                                   # git stuff; if = noob, ignore, stop lurkin
 │ 
