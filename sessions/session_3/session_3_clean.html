@@ -395,37 +395,70 @@ df_csv_formating &lt;- df_csv %&gt;%
 <div id="session-3-code" class="section level3">
 <h3><strong>session 3 code</strong></h3>
 <p>Now we will move to manipulating columns. For now lets clean the race
-column using the case_when(), remember to standarize the race column by
-converting into lower case so you dont have to write more conditions in
-the case_when().</p>
-<p>note: there are many ways to standarize dataset so if you have an
-idea on how to do manipulate then but you do not know how…. search it up
+column using the case_when(), remember to standardize the race column by
+converting into lower case so you don’t have to write more conditions in
+the case_when(). Then calculate the average person lift throughout the
+sum of the 3 lifts (squat, deadlift and bench). We will also get the
+value for the average strength of the overall contestants in the power
+lifting meet.</p>
+<p>3 outout in code below: - clean race column - create column where it
+calucate x contestant average weight of their combined 3 lifts - find
+the value of the overall average strength in this power lifting meet</p>
+<p>note: there are many ways to standardize/clean a dataset so if you
+have an idea on how to manipulate but you do not know how…. search it up
 on google! Generally your question has been asked and answer previously.
-Asking the right question is 90% coding… then 10% reading documention if
-youre cooked… jk documentation is great too.</p>
-<pre class="r"><code>df_clean_race_strength &lt;- df_csv_formating %&gt;%
+Asking the right question is 90% coding… then 10% reading documentation
+if youre cooked… jk documentation is great too.</p>
+<pre class="r"><code>df_clean_race_strength &lt;- df_csv_formating %&gt;%                  
   mutate(
-    lower_case_race = tolower(race),
+    lower_case_race = tolower(race), # standardize col so we dont have write more in case_when()
     edit_race = case_when(
       lower_case_race == &quot;caucasian&quot; ~ &quot;white&quot;,
       lower_case_race == &quot;am-af&quot; ~ &quot;black&quot;,
-      TRUE ~ lower_case_race
+      TRUE ~ lower_case_race 
     ),
-    race = edit_race,
-    avg_strength = round(rowMeans(select(., max_squat, max_bench ,max_deadlift)))
+    race = edit_race, # rename clean race column to race (overwrites old unclean race column)
+    avg_strength = round(rowMeans(select(., max_squat, max_bench ,max_deadlift))) # find the average lift per person
   ) %&gt;% 
   select(-c(&quot;lower_case_race&quot;, &quot;edit_race&quot;)) 
 
+# check if this the intended race output
 vec_race &lt;- c(&quot;white&quot;,&quot;black&quot;, &quot;asian&quot;, &quot;mixed&quot;, &quot;other&quot;) %&gt;% sort() 
 
-# if (identical(sort(unique(df_clean_race_strength$race)), vec_race) == TRUE){
-#   insight::print_color(&quot;PASS: vectors match&quot;, &quot;green&quot;)
-# } else {
-#   insight::print_color(&quot;!!FAIL: vectors NO match!!&quot;, &quot;red&quot;)
-# }
+if (identical(sort(unique(df_clean_race_strength$race)), vec_race) == TRUE){
+  insight::print_color(&quot;PASS: vectors match&quot;, &quot;green&quot;)
+} else {
+  insight::print_color(&quot;!!FAIL: vectors NO match!!&quot;, &quot;red&quot;)
+}
 
-# average strengh of contestants
-mean_strenth_overall &lt;- sum(df_clean_race_strength[,8:10]) / nrow(df_clean_race_strength) # nrow </code></pre>
+# average strengh of contestants in dataset
+mean_strenth_overall &lt;- sum(df_clean_race_strength[,8:10]) / nrow(df_clean_race_strength) # use nrow(), not the acutal int in the dataset... </code></pre>
+<p>Note in the line below, I use nrow() instead of the actual number of
+how many rows in the dataset. Now both method works but what if I have
+the formatted dataset but from a different lift meet? Reusing the code
+with the actual number of rows from this code will be incorrect because
+the new dataset may not have the same number of rows (contestant). That
+is why we use nrow(), that way the code can be reused/maintained
+properly. We want to write code that is easily reusable/maintainable in
+the future.</p>
+<p>here here is an example below:</p>
+<pre class="r"><code>new_lift_meet &lt;- head(df_clean_race_strength, 15) # new dataset with less than 5 constestant
+
+# correct
+correct_new_mean_strenth_overall &lt;- sum(new_lift_meet[,8:10]) / nrow(new_lift_meet) # use nrow(), not the acutal int in the dataset... 
+correct_new_mean_strenth_overall</code></pre>
+<pre><code>## [1] 532.3333</code></pre>
+<pre class="r"><code># incorrect
+incorrect_new_mean_strenth_overall &lt;- sum(new_lift_meet[,8:10]) / 20 # lets say i reused the code from the previous dataset, 20 is the amount of rows from the og dataset
+incorrect_new_mean_strenth_overall</code></pre>
+<pre><code>## [1] 399.25</code></pre>
+<p>See how “correct_new_mean_strength_overall” object is 532.33 vs
+“incorrect_new_mean_strength_overall” object is 399.25. Sometimes we may
+overlook that just because the code ran with no issues therefore the
+output is correct. To avoid make sure you test your desired outputs and
+write code where reusable in the future. Its much easier to use a
+function that pull x value if the x value is not a constant when reusing
+code.</p>
 </div>
 </div>
 
