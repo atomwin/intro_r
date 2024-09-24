@@ -43,9 +43,11 @@ interactive R learning
 └── README.md                                   # this readme lil bro
 ```
 
-old intro to R (2 hr training) itinerary:
+## Misc
 
-<https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
+-   view html files in a nice way: <https://html-preview.github.io/>
+
+-   old intro to R (2 hr training) itinerary: <https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
 
 ## memes
 
