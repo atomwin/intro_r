@@ -124,8 +124,6 @@ test_df_ins <- func_clean_col(df_clean_race_strength, "insurance", c("^ye%", "^n
 # use cbind() to join the new columns
 df_bind_clean_columns <- cbind(df_clean_race_strength, test_df_eth, test_df_sex, test_df_exe, test_df_ins)
 
-as.logical.factor(df_bind_clean_columns$edit_exercise)
-
 # bonus bonus bonus: -----------------------------------------------------------------
 # function for calculating average strength of combined 3 lifts in dataset (combine all contestants)
 func_overall_avg_str <- function(df, col_index =  c(8:10)){
