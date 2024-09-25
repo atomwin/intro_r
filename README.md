@@ -12,7 +12,7 @@ interactive R learning
 
 -   <https://swirlstats.com/swirlify/>
 
-## wth r these folders (not all files will be defined)
+## wth r these folders *(not all files will be defined)*
 
 ```         
 .
