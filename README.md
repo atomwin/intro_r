@@ -53,7 +53,7 @@ interactive R learning
 
 -   view html files in a nice way: <https://html-preview.github.io/>
 
--   old intro to R (2 hr training) itinerary: <https://github.com/atomwin/intro_r/blob/main/itinerary/itinerary_timeline.md>
+-   old intro to R (2 hr training) itinerary: <https://github.com/atomwin/intro_r/blob/main/itinerary/intro_session_2_itinerary_timeline.md>
 
 ## memes
 
