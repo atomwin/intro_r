@@ -140,5 +140,7 @@ source_avg_str
 # avg for squat & deadlift
 # note how func is applicable to not only find average of 3 lifts, but also 2 lifts. 
 # good practice to write code that is versatile and maintainable. 
+# make sure column index are the same format throughout datasets!!!!
+# otherwise call column names not the index to calculate; also more readable
 source_avg_dea_sqa <-func_overall_avg_str(df_race_eth_combined, col_index = c(8,10))
 source_avg_dea_sqa
