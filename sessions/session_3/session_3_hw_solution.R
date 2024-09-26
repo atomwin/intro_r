@@ -102,7 +102,7 @@ func_clean_col <- function(df, col_name, regex, output){
   
   output_sort <- output %>% sort()
   
-  # if statment if two regex can not cover everything, run this for ex: 
+  # if case_when can not cover everything- then NA, run this before df_final for ex: 
   # unique(df_clean_race_strength$exercise)
   df_final <- df_test %>%
     mutate(!!edit_col := ifelse(!!sym(edit_col) %!in% output_sort, NA, !!sym(edit_col))) %>% 
@@ -115,11 +115,11 @@ func_clean_col <- function(df, col_name, regex, output){
 }
 
 # call function
+# ^ indicates beginning of string, % is anything after
 test_df_eth <- func_clean_col(df_clean_race_strength, "ethnicity", c("^h%", "^not%"), c("h","nh"))
 test_df_sex <- func_clean_col(df_clean_race_strength, "sex", c("^fe%", "^ma%"), c("f","m"))
 test_df_exe <- func_clean_col(df_clean_race_strength, "exercise", c("^ye%", "^no"), c("y","n"))
 test_df_ins <- func_clean_col(df_clean_race_strength, "insurance", c("^ye%", "^no"), c("y","n"))
-
 
 # use cbind() to join the new columns
 df_bind_clean_columns <- cbind(df_clean_race_strength, test_df_eth, test_df_sex, test_df_exe, test_df_ins)
