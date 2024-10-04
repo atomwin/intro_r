@@ -244,6 +244,8 @@ mean_strenth_overall
 # Session 4: creating functions ################################################
 ################################################################################
 
+# go over ppt
+
 # ex without function
 # what is this for? finding df ct of values? finding room size? finding count of something?
 10 * 5
@@ -295,12 +297,21 @@ source_avg_dea_sqa <- func_overall_avg_str(df_clean_race_strength, col_index = c
 source_avg_dea_sqa
 
 # instead of using column index, you can call call the column name for better readability
-func_overall_avg_str(df_clean_race_strength, c("max_bench", "max_squat", "max_deadlift"))
+avg_strength <- func_overall_avg_str(df_clean_race_strength, c("max_bench", "max_squat", "max_deadlift"))
+
+# remember to check if function is working correctly
+# i expect 20
+if (sum(df_clean_race_strength[, c("max_bench", "max_squat", "max_deadlift")]) / avg_strength == nrow(df_clean_race_strength)) {
+  insight::print_color("PASS", "green")
+} else {
+  insight::print_color("FAIL", "red")
+}
 
 # go over case when function from bonus hw, show perla function map. (NO CODE DUE TO MOU) 
 
 # FINAL CODE--------------------------------------------------------------------
-
+# no final code, refer to functions in link below:
+# https://github.com/atomwin/intro_r/blob/main/sessions/session_3/session_3_hw_solution.R
 # FINAL CODE--------------------------------------------------------------------
 
 ################################################################################
