@@ -307,7 +307,7 @@ if (sum(df_clean_race_strength[, c("max_bench", "max_squat", "max_deadlift")]) /
   insight::print_color("FAIL", "red")
 }
 
-# go over case when function from bonus hw, show perla function map. (NO CODE DUE TO MOU) 
+# go over case when function from bonus hw, show perla function map, show workgroup func, etc.
 
 # FINAL CODE--------------------------------------------------------------------
 # no final code, refer to functions in link below:
