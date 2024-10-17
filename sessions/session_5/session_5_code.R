@@ -326,6 +326,55 @@ if (sum(df_clean_race_strength[, c("max_bench", "max_squat", "max_deadlift")]) /
 # Session 5: Datetimes WORK IN PROGRESSS########################################
 ################################################################################
 
+# go over ppt, go over online book
+
+# why datetime, we can view it in char but can not order
+
+# df_clean_race_strength
+
+# func: clean dates
+clean_dates <- function(dates) {
+  # Fixing the erroneous "5=11-1984" entry to a valid format
+  dates <- gsub("=", "/", dates)
+  
+  # Convert different date formats using lubridate's parse_date_time
+  dates_cleaned <- parse_date_time(dates, 
+                                   orders = c("mdy", "dmy"), 
+                                   exact = FALSE)
+  
+  # Format the cleaned dates in MM/DD/YYYY
+  dates_final <- format(dates_cleaned, "%m/%d/%Y")
+  return(dates_final)
+}
+
+vec_dob_clean <- clean_dates(df_clean_race_strength$dob)
+vec_dob_clean
+
+# show side by side
+df_dob_clean <- df_clean_race_strength %>% 
+  mutate(dob_clean = vec_dob_clean) %>% 
+  select(dob, dob_clean, everything())
+
+glimpse(df_dob_clean)
+
+# now convert to dt
+df_dob_dt_clean <- df_dob_clean %>% 
+  mutate(dob_dt = as.Date(dob_clean, format = "%m/%d/%Y"),
+         dob_format = format(dob_dt, "%m-%d-%Y")) %>% 
+  select(dob, dob_clean, dob_dt, dob_format, everything())
+
+
+
+
+
+
+
+
+
+
+
+
+
 ################################################################################
 # Session 5: Datetimes WORK IN PROGRESSS########################################
 ################################################################################
