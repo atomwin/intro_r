@@ -1,0 +1,13 @@
+For git training tomorrow
+
+create repo
+
+download repo in c, explain each folder needs a file
+
+show txt file, add, commit, push
+
+now import model stuff;
+got to my isye repo get hw problem and edit.
+
+
+show hw 1 with kknn, show code commit, then show code function over write commit push tada
